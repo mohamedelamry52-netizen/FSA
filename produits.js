@@ -28,3 +28,13 @@ if (disponibles.length > 0) {
 console.log("5. Résumé :")
 const resume = produits.map(produit =>`${produit.nom} - ${produit.prix} MAD - ${produit.stock} unités`);
 console.log(resume);
+console.log("\n Défi supplémentaire : ");
+const estValide = (produit) => {
+  return (
+    Number.isFinite(produit.prix) && produit.prix >= 0 &&
+    Number.isFinite(produit.stock) && produit.stock >= 0
+  );
+};
+
+const tousValides = produits.every(estValide);
+console.log(`Tous les produits du catalogue sont valides ? ${tousValides ? "Oui" : "Non"}`);
